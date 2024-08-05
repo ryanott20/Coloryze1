@@ -108,7 +108,7 @@ const UserInformation: React.FC<{ userData: any }> = ({ userData }) => {
               <AccordionContent>
                 <div className="border border-gray-300 p-4 rounded-lg">
                   <ul className="">
-                    {userData.extracurriculars.map((activity, index) => (
+                    {userData.extracurriculars.map((activity: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined, index: React.Key | null | undefined) => (
                       <li key={index} className="">
                         {activity}
                         {index !== userData.extracurriculars.length - 1 && (
@@ -127,7 +127,7 @@ const UserInformation: React.FC<{ userData: any }> = ({ userData }) => {
               <AccordionContent>
                 <div className="border border-gray-300 p-4 rounded-lg">
                   <ul className="">
-                    {userData.extracurriculars.map((activity, index) => (
+                    {userData.extracurriculars.map((activity: { position: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; organization: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; description: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; gradeLevels: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; timing: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; hoursPerWeek: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; weeksPerYear: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; }, index: React.Key | null | undefined) => (
                       <li key={index} className="">
                         <p>
                           <strong>Position/Leadership:</strong>{" "}
@@ -168,7 +168,7 @@ const UserInformation: React.FC<{ userData: any }> = ({ userData }) => {
             <AccordionContent>
               <div className="border border-gray-300 p-4 rounded-lg">
                 <ul>
-                  {userData.classes.map((class_, index) => (
+                  {userData.classes.map((class_: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined, index: React.Key | null | undefined) => (
                     <li key={index}>{class_}</li>
                   ))}
                 </ul>
@@ -180,7 +180,7 @@ const UserInformation: React.FC<{ userData: any }> = ({ userData }) => {
             <AccordionContent>
               <div className="border border-gray-300 p-4 rounded-lg">
                 <ul>
-                  {userData.top_colleges.map((college, index) => (
+                  {userData.top_colleges.map((college: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined, index: React.Key | null | undefined) => (
                     <li key={index}>{college}</li>
                   ))}
                 </ul>

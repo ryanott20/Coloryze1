@@ -51,7 +51,7 @@ export default function AlgoReview({
     if (messages.length > 0) {
       const lastMessage = messages[messages.length - 1];
       if (lastMessage && lastMessage.content) {
-        const { grade, explanation } = lastMessage.content;
+        // const { grade, explanation } = lastMessage.content;
         // onSuccess(grade, explanation);
       } else {
         console.error("Last message does not have the expected content");
@@ -67,13 +67,13 @@ export default function AlgoReview({
   };
 
   // Function to handle form submission and success
-  const handleSubmitAndSuccess = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    await handleSubmit(e);
-    setIsLoading(false);
-    handleSuccess();
-  };
+  // const handleSubmitAndSuccess = async (e) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   await handleSubmit(e);
+  //   setIsLoading(false);
+  //   handleSuccess();
+  // };
 
   return (
     
@@ -84,7 +84,7 @@ export default function AlgoReview({
         </div>
       ))}
       <div className="">
-        <form onSubmit={handleSubmitAndSuccess}>
+        {/* <form onSubmit={handleSubmitAndSuccess}>
           <Button type="submit">Draft Response</Button>
           <div className="mt-2">
             <Select onValueChange={(value) => setModel(value)}>
@@ -96,8 +96,8 @@ export default function AlgoReview({
                 <SelectItem value="gpt-4-1106-preview">GPT-4</SelectItem>
               </SelectContent>
             </Select>
-          </div>
-        </form>
+          </div> */}
+        {/* </form> */}
       </div>
     </div>
   );

@@ -23,8 +23,9 @@ export async function middleware(request: NextRequest) {
       .select("*")
       .eq("uid", session.user.id);
 
-    if (data.length > 0) {
-      const isAdmin = data[0].admin;
+      if (data && data.length > 0 && data[0].hasOwnProperty('admin')) {
+        const isAdmin = data[0].admin;
+    
 
 
       if (!isAdmin && request.url.includes("admin")) {

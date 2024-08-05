@@ -201,15 +201,15 @@ export const ProReview: React.FC<{ userData: any }> = ({ userData }) => {
               <AccordionItem value="spike1">
                 <AccordionTrigger>College Narrative</AccordionTrigger>
                 <AccordionContent className="h-full overflow-y-auto">
-                  <div className="list-disc pl-6 text-gray-700 leading-relaxed">
+                  {/* <div className="list-disc pl-6 text-gray-700 leading-relaxed">
                     {Array.isArray(userData.narrative_review) ? (
-                      userData.narrative_review.map((comment, index) => (
-                        <div key={index}>{comment}</div>
-                      ))
+                      // userData.narrative_review.map((comment, index) => (
+                        // <div key={index}>{comment}</div>
+                      // ))
                     ) : (
                       <div>{userData.narrative_review}</div>
-                    )}
-                  </div>
+                    )} */}
+                  {/* </div> */}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -335,11 +335,11 @@ export const ProReview: React.FC<{ userData: any }> = ({ userData }) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <ul className="list-disc pl-6 text-gray-700 leading-relaxed">
-              {userData.overall_comments.map((comment, index) => (
-                <li key={index}>{comment}</li>
-              ))}
-            </ul>
+            {/* <ul className="list-disc pl-6 text-gray-700 leading-relaxed"> */}
+              {/* {userData.overall_comments.map((comment, index) => ( */}
+                {/* <li key={index}>{comment}</li> */}
+              {/* ))} */}
+            {/* </ul> */}
           </CardContent>
         </Card>
 

@@ -44,7 +44,7 @@ const ActivitiesSection: React.FC<{ userData: any }> = ({ userData }) => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {activities.length > 0 ? (
+          {/* {activities.length > 0 ? (
             <Accordion type="multiple">
               {activities.map((activity, index) => (
                 <AccordionItem key={index} value={`activity-${index}`}>
@@ -80,11 +80,11 @@ const ActivitiesSection: React.FC<{ userData: any }> = ({ userData }) => {
                     </div>
                   </AccordionContent>
                 </AccordionItem>
-              ))}
-            </Accordion>
-          ) : (
+              ))} */}
+            {/* </Accordion> */}
+           : (
             <p className="text-gray-500">No activities section available.</p>
-          )}
+          )
         </CardContent>
       </Card>
     );

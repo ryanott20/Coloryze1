@@ -287,11 +287,11 @@ export const BasicReview: React.FC<{ userData: any }> = ({ userData }) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <ul className="list-disc pl-6 text-gray-700 leading-relaxed">
+            {/* <ul className="list-disc pl-6 text-gray-700 leading-relaxed">
               {userData.overall_comments.map((comment, index) => (
                 <li key={index}>{comment}</li>
               ))}
-            </ul>
+            </ul> */}
           </CardContent>
         </Card>
 

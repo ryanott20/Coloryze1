@@ -111,9 +111,9 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
     fetchUserData();
   }, []);
 
-  const handleRadioChange = (event) => {
-    setSelectedPerson(event.target.value);
-  };
+  // const handleRadioChange = (event) => {
+  //   setSelectedPerson(event.target.value);
+  // };
 
   const [reviewPerson, setReviewPerson] = useState("");
 
@@ -369,7 +369,7 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
             </CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
-          <CardContent>
+          {/* <CardContent>
             <div className="mb-4 focus:ring-indigo-500 h-12 text-lg justify-between font-medium transition-all">
               <label htmlFor="reviewPerson">
                 <input
@@ -413,7 +413,7 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
                 Dylan
               </label>
             </div>
-          </CardContent>
+          </CardContent> */}
         </Card>
         {/* User Information */}
         <Card className="shadow-md p-6 bg-white rounded-lg ">
@@ -467,79 +467,15 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
                   </div>
                 </AccordionContent>
               </AccordionItem>
-              {userData.version == 1 && (
-                <AccordionItem value="extracurriculars">
-                  <AccordionTrigger>Extracurriculars</AccordionTrigger>
-                  <AccordionContent>
-                    <div className="border border-gray-300 p-4 rounded-lg">
-                      <ul className="">
-                        {userData.extracurriculars.map((activity, index) => (
-                          <li key={index} className="">
-                            {activity}
-                            {index !== userData.extracurriculars.length - 1 && (
-                              <div className="my-2 border-t border-gray-300"></div>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              )}
-              {userData.version !== 1 && (
-                <AccordionItem value="extracurriculars">
-                  <AccordionTrigger>Extracurriculars</AccordionTrigger>
-                  <AccordionContent>
-                    <div className="border border-gray-300 p-4 rounded-lg">
-                      <ul className="">
-                        {userData.extracurriculars.map((activity, index) => (
-                          <li key={index} className="">
-                            <p>
-                              <strong>Position/Leadership:</strong>{" "}
-                              {activity.position}
-                            </p>
-                            <p>
-                              <strong>Organization:</strong>{" "}
-                              {activity.organization}
-                            </p>
-                            <p>
-                              <strong>Description:</strong>{" "}
-                              {activity.description}
-                            </p>
-                            <p>
-                              <strong>Grade Levels:</strong>{" "}
-                              {activity.gradeLevels}
-                            </p>
-                            <p>
-                              <strong>Timing:</strong> {activity.timing}
-                            </p>
-                            <p>
-                              <strong>Hours per Week:</strong>{" "}
-                              {activity.hoursPerWeek}
-                            </p>
-                            <p>
-                              <strong>Weeks per Year:</strong>{" "}
-                              {activity.weeksPerYear}
-                            </p>
-                            {index !== userData.extracurriculars.length - 1 && (
-                              <div className="my-2 border-t border-gray-300"></div>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              )}
               <AccordionItem value="classes">
                 <AccordionTrigger>Classes</AccordionTrigger>
                 <AccordionContent>
                   <div className="bg-gray-100 p-4 rounded-lg">
-                    <ul>
-                      {userData.classes.map((class_, index) => (
-                        <li key={index}>{class_}</li>
-                      ))}
-                    </ul>
+                    {/* <ul> */}
+                      {/* {userData.classes.map((class_, index) => ( */}
+                        {/* <li key={index}>{class_}</li> */}
+                      {/* ))} */}
+                    {/* </ul> */}
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -547,11 +483,11 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
                 <AccordionTrigger>Top Colleges</AccordionTrigger>
                 <AccordionContent>
                   <div className="bg-gray-100 p-4 rounded-lg">
-                    <ul>
-                      {userData.top_colleges.map((college, index) => (
-                        <li key={index}>{college}</li>
-                      ))}
-                    </ul>
+                    {/* <ul> */}
+                      {/* {userData.top_colleges.map((college, index) => ( */}
+                        {/* <li key={index}>{college}</li> */}
+                      {/* ))} */}
+                    {/* </ul> */}
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -671,7 +607,7 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
                   setting="extracurriculars"
                 />
               )}
-              {userData.extracurriculars.map((activity, index) => (
+              {/* {userData.extracurriculars.map((activity, index) => (
                 <div className="mt-5" key={index}>
                   <p>
                     <strong>Position/Leadership:</strong> {activity.position}
@@ -695,7 +631,7 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
                     <strong>Weeks per Year:</strong> {activity.weeksPerYear}
                   </p>
                 </div>
-              ))}
+              ))} */}
               <div className="mb-4">
                 <label
                   htmlFor="extracurricularsGrade"
@@ -901,7 +837,7 @@ export default function ProductPage({ params }: { params: { userId: any } }) {
             )}
             <Textarea
               value={narrativeReview}
-              onChange={(e) => setNarrativeReview(e.target.value)}
+              // onChange={(e) => setNarrativeReview(e.target.value)}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               rows={10}
             />

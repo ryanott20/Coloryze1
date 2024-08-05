@@ -188,7 +188,7 @@ const AdminReviews: React.FC = () => {
           className="cursor-pointer"
           onClick={() => handleReviewClick(row.original.id)}
         >
-          {row.original.unanswered_questions}
+          {/* {row.original.unanswered_questions} */}
         </div>
       ),
     },
@@ -210,11 +210,11 @@ const AdminReviews: React.FC = () => {
         const dueDate = new Date(row.original.due_date);
         return <span>{dueDate.toLocaleDateString()}</span>;
       },
-      sortingFn: (a, b) => {
-        const dateA = new Date(a.due_date);
-        const dateB = new Date(b.due_date);
-        return dateB.getTime() - dateA.getTime(); // Sort in descending order
-      },
+      // sortingFn: (a, b) => {
+      //   const dateA = new Date(a.due_date);
+      //   const dateB = new Date(b.due_date);
+      //   return dateB.getTime() - dateA.getTime(); // Sort in descending order
+      // },
     },
     {
       accessorKey: "due_date",

@@ -155,11 +155,11 @@ const CompletedReviewPDF: React.FC<CompletedReviewPDFProps> = ({
             involvement.
           </Text>
           <View style={styles.separator} />
-          {userData.extracurriculars.map((activity, index) => (
+          {/* {userData.extracurriculars.map((activity, index) => (
             <Text key={index} style={styles.text}>
               {activity}
             </Text>
-          ))}
+          ))} */}
         </View>
 
         <View style={styles.section}>
@@ -168,11 +168,11 @@ const CompletedReviewPDF: React.FC<CompletedReviewPDFProps> = ({
             List of the applicant&apos;s classes and coursework.
           </Text>
           <View style={styles.separator} />
-          {userData.classes.map((class_, index) => (
+          {/* {userData.classes.map((class_, index) => (
             <Text key={index} style={styles.text}>
               {class_}
             </Text>
-          ))}
+          ))} */}
         </View>
 
         <View style={styles.section}>
@@ -181,11 +181,11 @@ const CompletedReviewPDF: React.FC<CompletedReviewPDFProps> = ({
             List of the applicant&apos;s top college choices.
           </Text>
           <View style={styles.separator} />
-          {userData.top_colleges.map((college, index) => (
+          {/* {userData.top_colleges.map((college, index) => (
             <Text key={index} style={styles.text}>
               {college}
             </Text>
-          ))}
+          ))} */}
         </View>
 
         <View style={styles.section}>
@@ -307,7 +307,7 @@ const CompletedReviewPDF: React.FC<CompletedReviewPDFProps> = ({
                 interviews.
               </Text>
               <View style={styles.separator} />
-              {Array.isArray(userData.narrative_review) ? (
+              {/* {Array.isArray(userData.narrative_review) ? (
                 userData.narrative_review.map((comment, index) => (
                   <Text key={index} style={styles.text}>
                     {comment}
@@ -315,7 +315,7 @@ const CompletedReviewPDF: React.FC<CompletedReviewPDFProps> = ({
                 ))
               ) : (
                 <Text style={styles.text}>{userData.narrative_review}</Text>
-              )}
+              )} */}
             </View>
           </>
         )}
@@ -326,11 +326,11 @@ const CompletedReviewPDF: React.FC<CompletedReviewPDFProps> = ({
             General comments about the applicant&apos;s overall application.
           </Text>
           <View style={styles.separator} />
-          {userData.overall_comments.map((comment, index) => (
+          {/* {userData.overall_comments.map((comment, index) => (
             <Text key={index} style={styles.text}>
               {comment}
             </Text>
-          ))}
+          ))} */}
         </View>
       </Page>
     </Document>

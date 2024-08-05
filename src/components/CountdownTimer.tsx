@@ -46,14 +46,14 @@ const CountdownTimer: React.FC<{ userData: any }> = ({ userData }) => {
           const minutes = Math.floor((remainingSeconds % (60 * 60)) / 60);
           const seconds = Math.floor(remainingSeconds % 60);
 
-          setCountdownTimer(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+          // setCountdownTimer(`${days}d ${hours}h ${minutes}m ${seconds}s`);
           setProgress(remainingPercentage);
         } else {
-          setCountdownTimer("Review due date has passed");
+          // setCountdownTimer("Review due date has passed");
           setProgress(0);
         }
       } else {
-        setCountdownTimer("Review due date has passed");
+        // setCountdownTimer("Review due date has passed");
         setProgress(0);
       }
     };

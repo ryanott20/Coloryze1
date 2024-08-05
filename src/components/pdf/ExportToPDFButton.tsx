@@ -17,7 +17,7 @@ const ExportToPDFButton: React.FC<ExportToPDFButtonProps> = ({
     console.log("Generating PDF");
     console.log(plan);
     const doc = <CompletedReviewPDF userData={userData} plan={plan} />;
-    const asPdf = pdf([]);
+    const asPdf = pdf();
     asPdf.updateContainer(doc);
     const blob = await asPdf.toBlob();
     return blob;

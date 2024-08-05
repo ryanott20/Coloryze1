@@ -117,10 +117,10 @@ const QnA: React.FC = () => {
       <CardContent>
         <div className="mb-4">
           <Textarea
-            type="textarea"
+            // type="textarea"
             placeholder="Enter your question"
             value={newQuestion}
-            onChange={handleNewQuestionChange}
+            // onChange={handleNewQuestionChange}
           />
           <Button
             className="mt-2"

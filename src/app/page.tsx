@@ -44,7 +44,7 @@ export default async function Home() {
     const { data, error } = await supabase
       .from("users")
       .select("*")
-      .eq("uid", session.user.id);
+      .eq("uid", session?.user?.id ?? '')
 
       console.log(data);
 
@@ -77,7 +77,7 @@ export default async function Home() {
   const { data: userDataOnboarding } = await supabase
     .from("users")
     .select("*")
-    .eq("uid", session.user.id)
+    .eq("uid", session?.user?.id ?? '')
     .single();
 
   if (userDataOnboarding && userDataOnboarding.onboarded === false) {
@@ -100,7 +100,7 @@ export default async function Home() {
   const { data: userDataPricing } = await supabase
     .from("users")
     .select("*")
-    .eq("uid", session.user.id)
+    .eq("uid", session?.user?.id ?? '')
     .single();
 
   if (
@@ -116,7 +116,7 @@ export default async function Home() {
   const { data: userData } = await supabase
     .from("users")
     .select("*")
-    .eq("uid", session.user.id)
+    .eq("uid", session?.user?.id ?? '')
     .single();
 
   //if review not complete show  waiting dashboard
