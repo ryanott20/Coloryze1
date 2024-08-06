@@ -1,0 +1,146 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    text-align: center;
+    color: #5C13E8;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .methodToggle {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .button, .activeButton {
+    padding: 5px 10px; /* Smaller padding for smaller buttons */
+    font-size: 0.9rem; /* Smaller font size */
+    border: 2px solid #5C13E8;
+    border-radius: 5px; /* Slightly smaller border radius */
+    cursor: pointer;
+  }
+  
+  .button {
+    background-color: white;
+    color: #5C13E8;
+  }
+  
+  .activeButton {
+    background-color: #5C13E8;
+    color: white;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGroup label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #5C13E8;
+  }
+  
+  .inputGroup input {
+    padding: 15px;
+    border: 2px solid #5C13E8;
+    border-radius: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .searchBar {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #5C13E8;
+    border-radius: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #5C13E8;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    background-color: white;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .suggestions li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .unitButton, .activeButton {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: 2px solid #5C13E8;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .unitButton {
+    background-color: white;
+    color: #5C13E8;
+  }
+  
+  .activeButton {
+    background-color: #5C13E8;
+    color: white;
+  }
+  
+  .button {
+    padding: 15px;
+    background-color: #5C13E8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #4a0fbf;
+  }
+  
+  .result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .result h2 {
+    margin-top: 0;
+    color: #5C13E8;
+  }
+  
+  .result p {
+    margin: 10px 0;
+  }

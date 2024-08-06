@@ -8,6 +8,7 @@ import UserInformation from "@/components/UserInformation";
 import CountdownTimer from "@/components/CountdownTimer";
 import CompletedReview from "@/components/completedreview/CompletedReview";
 
+import IndexPage from "./index.js"
 import Hotjar from "@hotjar/browser";
 
 //send email
@@ -132,5 +133,5 @@ export default async function Home() {
 
 
 
-  return <div>Error...</div>;
+  return <div> <IndexPage/></div>;
 }
