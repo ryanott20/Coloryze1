@@ -16,18 +16,9 @@ import Banner from './banner';
 export default function IndexPage() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <SEO title="Startup Landing 010" /> */}
-      <>
+    
         <Banner />
-        <div> hi </div>
-      </>
-      {/* <UltimateFeatures /> */}
-      {/* <Features /> */}
-      {/* <IntroVideo /> */}
-      {/* <UsefulFeatures /> */}
-      {/* <Widgets /> */}
-      {/* <Pricing /> */}
-      {/* <Faq /> */}
+ 
     </ThemeProvider>
   );
 }
