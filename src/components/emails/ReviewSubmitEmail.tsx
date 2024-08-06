@@ -25,7 +25,7 @@ export const ReviewSubmitEmail = () => (
           <Img
             src={`https://i.ibb.co/yS6P9v0/blue-no-bg.png`}
             width="100"
-            alt="Ivyfy"
+            alt="PediatRx"
           />
           <Hr style={hr} />
           <Text style={paragraph}>
@@ -36,7 +36,7 @@ export const ReviewSubmitEmail = () => (
             We try to review all applications within 24 hours. You can view the
             status of your review on your dashboard.
           </Text>
-          <Button style={button} href="https://app.ivyfy.me">
+          <Button style={button} href="https://app.PediatRx.me">
             Check status
           </Button>
           <Hr style={hr} />
@@ -44,10 +44,10 @@ export const ReviewSubmitEmail = () => (
             If you have any questions or concerns, feel free to respond to this
             email.
           </Text>
-          <Text style={paragraph}>— The Ivyfy team</Text>
+          <Text style={paragraph}>— The PediatRx team</Text>
           <Hr style={hr} />
           <Text style={footer}>
-            Ivyfy, 42075 Loudoun Academy Dr, Leesburg, VA 20175
+          PediatRx, 42075 Loudoun Academy Dr, Leesburg, VA 20175
           </Text>
         </Section>
       </Container>

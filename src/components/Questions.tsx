@@ -60,8 +60,9 @@ const Quiz = () => {
         .from("users")
         .update({
           name: answers.name,
-          place_of_work: answers.placeOfWork,
+          placeOfWork: answers.placeOfWork,
           position: answers.position,
+          onboarded: true
         })
         .eq("uid", session.data.session?.user.id);
 

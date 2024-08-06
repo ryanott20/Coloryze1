@@ -27,18 +27,18 @@ export const StripeWelcomeEmail = () => (
           <Img
             src={`https://i.ibb.co/yS6P9v0/blue-no-bg.png`}
             width="100"
-            alt="Ivyfy"
+            alt="PediatRx"
           />
           <Hr style={hr} />
           <Text style={paragraph}>
-            Thanks for signing up! You&apos;re now ready to ivyfy your
-            applicaiton.
+            Thanks for signing up! You&apos;re now ready to PediatRx your
+            life.
           </Text>
           <Text style={paragraph}>
             Simply fill out the questions on the dashboard, pay your one-time
             review fee, and wait 24 hours. That&apos;s it!
           </Text>
-          <Button style={button} href="https://app.ivyfy.me">
+          <Button style={button} href="https://app.PediatRx.me">
             View your Dashboard
           </Button>
           <Hr style={hr} />
@@ -46,10 +46,10 @@ export const StripeWelcomeEmail = () => (
             We&apos;ll be here to help you with any step along the way. Just
             respond to this email with any concerns!
           </Text>
-          <Text style={paragraph}>— The Ivyfy team</Text>
+          <Text style={paragraph}>— The PediatRx team</Text>
           <Hr style={hr} />
           <Text style={footer}>
-            Ivyfy, 42075 Loudoun Academy Dr, Leesburg, VA 20175
+          PediatRx, 42075 Loudoun Academy Dr, Leesburg, VA 20175
           </Text>
         </Section>
       </Container>

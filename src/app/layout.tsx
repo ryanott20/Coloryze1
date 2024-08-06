@@ -16,9 +16,9 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ivyfy",
+  title: "PediatRx",
   description:
-    "Find the strengths and weaknesses within your college application.",
+    "Streamline pediatric dosage calculations.",
 };
 
 export default async function RootLayout({

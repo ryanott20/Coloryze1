@@ -30,7 +30,7 @@ export function Footer() {
 
       </div>
       <p className="text-center text-sm leading-loose md:text-left pt-4">
-      Ivyfy is not affiliated with MIT, Penn, Princeton, Yale, the Ivy League, or the Common App.
+      PediatRx is not affiliated with MIT, Penn, Princeton, Yale, the Ivy League, or the Common App.
     </p>
     </div>
   );
