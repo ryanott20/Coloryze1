@@ -50,11 +50,9 @@ function App() {
     const adultDose = parseFloat(formFields.adultDose);
     const weight = parseFloat(formFields.weight);
     if (isNaN(adultDose) || isNaN(weight)) {
-<div className="toast">
-  <div className="alert alert-info">
-    <span>Please enter valid numbers for the Inputs.</span>
-  </div>
-</div>      
+      // Display error message using a toast or alert
+      alert('Please enter valid numbers for the Inputs.');
+      return;
     }
     let dosage = adultDose * weight;
 
@@ -99,30 +97,30 @@ function App() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a href="/">Calculator</a>
+                <button onClick={() => window.location.href = '/'}>Calculator</button>
               </li>
               <li>
-                <a>About</a>
+                <button>About</button>
               </li>
               <li>
-                <a>Database</a>
+                <button>Database</button>
               </li>
             </ul>
           </div>
-          <a href="/" className="btn btn-ghost text-xl">
+          <button onClick={() => window.location.href = '/'} className="btn btn-ghost text-xl">
             <img
               src="/logo.svg"
               style={{ width: '12rem' }}
               className="object-cover"
               alt="logo"
             />
-          </a>
+          </button>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-4 space-x-4 text-lg font-medium">
-            <li><a href="/">Calculator</a></li>
-            <li><a>About</a></li>
-            <li><a>Database</a></li>
+            <li><button onClick={() => window.location.href = '/'}>Calculator</button></li>
+            <li><button>About</button></li>
+            <li><button>Database</button></li>
           </ul>
         </div>
         <div className="navbar-end mx-4">
@@ -168,7 +166,7 @@ function App() {
                   onBlur={handleInputBlur}
                 />
                 <input
-                  type="integer"
+                  type="number"
                   name="adultDose"
                   placeholder="Adult Dose (mg/day):"
                   className="input input-bordered w-full"
@@ -177,7 +175,7 @@ function App() {
                   onBlur={handleInputBlur}
                 />
                 <input
-                  type="integer"
+                  type="number"
                   name="drugStrength"
                   placeholder="Drug Strength"
                   className="input input-bordered w-full"
@@ -186,7 +184,7 @@ function App() {
                   onBlur={handleInputBlur}
                 />
                 <input
-                  type="integer"
+                  type="number"
                   name="weight"
                   placeholder="Weight (kg)"
                   className="input input-bordered w-full"
