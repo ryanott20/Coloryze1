@@ -8,9 +8,9 @@ module.exports = {
   daisyui: {
     themes: [
       // "light",
-      // "dark",
       "cupcake",
       "bumblebee",
+      "dark",
       "emerald",
       "corporate",
       "synthwave",
