@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './output.css';
+import AutocompleteInput from './AutocompleteInput';
+import { TextField } from '@mui/material';
 
 function App() {
   const [formFields, setFormFields] = useState({
@@ -7,12 +9,24 @@ function App() {
     adultDose: '',
     drugStrength: '',
     weight: '',
+    amount: '',
+    volume: '',
   });
 
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState(null);
-  const [unit] = useState('mg');
+  const [unit, setUnit] = useState('mg'); // Unit for dosage
+  const [weightUnit, setWeightUnit] = useState('kg'); // Unit for weight
   const [showCalculations, setShowCalculations] = useState(false);
+  const [frequency, setFrequency] = useState('q24hr (qDay)');
+  const [amount, setAmount] = useState('mg'); // Unit for weight
+  const [volume, setVolume] = useState('ml'); // Unit for weight
+
+
+
+  const handleDrugNameSelect = (selectedName) => {
+    setFormFields((prev) => ({ ...prev, drugName: selectedName }));
+  };
 
   const handleAnotherCalculation = () => {
     setFormFields({
@@ -20,6 +34,8 @@ function App() {
       adultDose: '',
       drugStrength: '',
       weight: '',
+      amount: '',
+      volume: '',
     });
     setResult(null);
     setProgress(0);
@@ -33,7 +49,7 @@ function App() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'adultDose' || name === 'weight') {
+    if (name === 'adultDose' || name === 'weight' || name === 'amount' || name === 'volume') {
       // Ensure only valid numeric input
       const numericValue = value.replace(/[^0-9.]/g, '');
       setFormFields((prev) => ({ ...prev, [name]: numericValue }));
@@ -50,11 +66,13 @@ function App() {
     const adultDose = parseFloat(formFields.adultDose);
     const weight = parseFloat(formFields.weight);
     if (isNaN(adultDose) || isNaN(weight)) {
-      // Display error message using a toast or alert
       alert('Please enter valid numbers for the Inputs.');
       return;
     }
-    let dosage = adultDose * weight;
+
+    // Convert weight if needed
+    const weightInKg = weightUnit === 'lb' ? weight * 0.453592 : weight;
+    const dosage = adultDose * weightInKg;
 
     setResult({
       dosage,
@@ -63,6 +81,29 @@ function App() {
       instructions: `${dosage} ${unit} per day`,
     });
     setShowCalculations(true);
+  };
+
+  const handleUnitChange = (newUnit) => {
+    setUnit(newUnit);
+    // Convert existing dosage values if necessary
+    // This part may be optional, depending on your needs
+  };
+
+  const handleWeightUnitChange = (newWeightUnit) => {
+    setWeightUnit(newWeightUnit);
+    // Convert existing weight values if necessary
+    // This part may be optional, depending on your needs
+  };
+
+  const handleAmountChange = (newAmount) => {
+    setAmount(newAmount);
+    // Convert existing weight values if necessary
+    // This part may be optional, depending on your needs
+  };
+  const handleVolumeChange = (newVolume) => {
+    setVolume(newVolume);
+    // Convert existing weight values if necessary
+    // This part may be optional, depending on your needs
   };
 
   return (
@@ -156,168 +197,204 @@ function App() {
           <div className="bg-base-100 shadow-xl rounded-xl p-8 space-y-8 max-w">
             {!result ? (
               <>
-    <label className="input input-bordered flex items-center gap-2 w-full">
+                <div className="input-group flex flex-col gap-2 w-full">
+                  <AutocompleteInput
+                    value={formFields.drugName}
+                    onChange={(value) => setFormFields((prev) => ({ ...prev, drugName: value }))}
+                    onSelect={handleDrugNameSelect}
+                    className="input input-bordered"
+                  />
+                </div>
+                
+                <div className="flex items-center space-x-2 flex-wrap">
+                  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-4 w-4 opacity-70">
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                    <input
+                      type="text"
+                      name="weight"
+                      placeholder="Patient Weight"
+                      value={formFields.weight}
+                      onChange={handleInputChange}
+                      onBlur={handleInputBlur}
+                      className="flex-grow min-w-0"
+                    />
+                  </label>
+
+                  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
+                  <button
+                      className={`px-6 py-2 ${weightUnit === 'kg' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleWeightUnitChange('kg')}
+                    >
+                      kg
+                    </button>
+                    <button
+                      className={`px-6 py-2 ${weightUnit === 'lb' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleWeightUnitChange('lb')}
+                    >
+                      lb
+                    </button>
+                    </div>
+                </div>
+
+
+
+                <div className="flex items-center space-x-2 flex-wrap">
+                  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-4 w-4 opacity-70">
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                    <input
+                      type="text"
+                      name="adultDose"
+                      placeholder="Dosage"
+                      value={formFields.adultDose}
+                      onChange={handleInputChange}
+                      onBlur={handleInputBlur}
+                      className="flex-grow min-w-0"
+                    />
+                  </label>
+
+                  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
+                  <button
+                      className={`px-6 py-2 ${unit === 'mg' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleUnitChange('mg')}
+                    >
+                      mg/kg
+                    </button>
+                    <button
+                      className={`px-6 py-2 ${unit === 'g' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleUnitChange('g')}
+                    >
+                      g/kg
+                    </button>
+                    <button
+                      className={`px-6 py-2 ${unit === 'mcg' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleUnitChange('mcg')}
+                    >
+                      mcg/kg
+                    </button></div>
+                </div>
+
+
+                <div className="relative flex items-center w-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                     fill="currentColor"
-                    className="h-4 w-4 opacity-70">
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500">
                     <path
-                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                      d="M7.293 9.293a1 1 0 0 1 1.414 0L12 11.586l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 12H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6.586l-1.293-1.293A1 1 0 0 1 7.293 2.707l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0z" />
                   </svg>
-                  <input
-                    type="text"
-                    name="drugName"
-                    placeholder="Drug Name"
-                    value={formFields.drugName}
-                    onChange={handleInputChange}
-                    onBlur={handleInputBlur}
-                  />
 
-                </label>
-                <div className="flex items-center space-x-2 flex-wrap">
-  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      className="h-4 w-4 opacity-70">
-      <path
-        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-    </svg>
-    <input
-      type="text"
-      name="weight"
-      placeholder="Patient Weight"
-      value={formFields.weight}
-      onChange={handleInputChange}
-      onBlur={handleInputBlur}
-      className="flex-grow min-w-0"
-    />
-  </label>
-
-  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">lb</button>
-  </div>
-</div>
-
-
-
-<div className="flex items-center space-x-2 flex-wrap">
-  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      className="h-4 w-4 opacity-70">
-      <path
-        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-    </svg>
-    <input
-      type="text"
-      name="adultDose"
-      placeholder="Dosage"
-      value={formFields.adultDose}
-      onChange={handleInputChange}
-      onBlur={handleInputBlur}
-      className="flex-grow min-w-0"
-    />
-  </label>
-
-  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">mg/kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">g/kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">mcg/kg</button>
-  </div>
-</div>
-
-
-<div className="relative flex items-center w-full">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 16 16"
-    fill="currentColor"
-    className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500">
-    <path
-      d="M7.293 9.293a1 1 0 0 1 1.414 0L12 11.586l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 12H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6.586l-1.293-1.293A1 1 0 0 1 7.293 2.707l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0z" />
-  </svg>
-
-  <select className="input input-bordered pl-10 w-full" style={{ color: '#9BA3AF' }}>
-    <option disabled selected>Frequency of Dose</option>
-    <option>q24hr (qDay)</option>
-    <option>q12hr (BID)</option>
-    <option>q8hr (TID)</option>
-    <option>q6hr (QID)</option>
-    <option>q4hr</option>
-    <option>q2hr</option>
-    <option>q1hr</option>
-  </select>
-</div>
+                  <select className="input input-bordered pl-10 w-full" style={{ color: '#9BA3AF' }}>
+                    <option disabled selected>Frequency of Dose</option>
+                    <option>q24hr (qDay)</option>
+                    <option>q12hr (BID)</option>
+                    <option>q8hr (TID)</option>
+                    <option>q6hr (QID)</option>
+                    <option>q4hr</option>
+                    <option>q2hr</option>
+                    <option>q1hr</option>
+                  </select>
+                </div>
 
 
 
 
                 <div className="flex items-center space-x-2 flex-wrap">
-  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      className="h-4 w-4 opacity-70">
-      <path
-        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-    </svg>
-    <input
-      type="text"
-      name="amount"
-      placeholder="Medication Amount (Liquid Formulation Only)"
-      onChange={handleInputChange}
-      onBlur={handleInputBlur}
-      className="flex-grow min-w-0"
-    />
+                  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-4 w-4 opacity-70">
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                    <input
+                      type="text"
+                      name="amount"
+                      placeholder="Medication Amount (Liquid Formulation Only)"
+                      onChange={handleInputChange}
+                      onBlur={handleInputBlur}
+                      className="flex-grow min-w-0"
+                    />
                     <span className="badge badge-accent">Optional</span>
 
-  </label>
+                  </label>
 
-  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">mg/kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">g/kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">mcg/kg</button>
-  </div>
-</div>
+                  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
+                  <button
+                      className={`px-6 py-2 ${amount === 'mg' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleAmountChange('mg')}
+                    >
+                      mg
+                    </button>
+                    <button
+                      className={`px-6 py-2 ${amount === 'grams' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleAmountChange('grams')}
+                    >
+                      grams
+                    </button>
+                    <button
+                      className={`px-6 py-2 ${amount === 'mcg' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleAmountChange('mcg')}
+                    >
+                      mcg
+                    </button></div>
+                </div>
 
-<div className="flex items-center space-x-2 flex-wrap">
-  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      className="h-4 w-4 opacity-70">
-      <path
-        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-    </svg>
-    <input
-      type="text"
-      name="volume"
-      placeholder="Per Volume (Liquid Formulation Only)"
-      onChange={handleInputChange}
-      onBlur={handleInputBlur}
-      className="flex-grow min-w-0"
-    />
+                <div className="flex items-center space-x-2 flex-wrap">
+                  <label className="input input-bordered flex items-center gap-2 flex-grow min-w-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-4 w-4 opacity-70">
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                    <input
+                      type="text"
+                      name="volume"
+                      placeholder="Per Volume (Liquid Formulation Only)"
+                      onChange={handleInputChange}
+                      onBlur={handleInputBlur}
+                      className="flex-grow min-w-0"
+                    />
                     <span className="badge badge-accent">Optional</span>
 
-  </label>
+                  </label>
 
-  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">mg/kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">g/kg</button>
-    <button className="px-6 py-2 bg-base-100 text-gray-700 hover:bg-base-200">mcg/kg</button>
-  </div>
-</div>
-                
+                  <div className="inline-flex rounded-md overflow-hidden border border-gray-300 ml-4 flex-shrink-0">
+                  <button
+                      className={`px-6 py-2 ${volume === 'mL' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleVolumeChange('mL')}
+                    >
+                      mL
+                    </button>
+                    <button
+                      className={`px-6 py-2 ${volume === 'L' ? 'bg-base-300' : 'bg-base-100'} text-gray-700 hover:bg-base-200`}
+                      onClick={() => handleVolumeChange('L')}
+                    >
+                      L
+                    </button></div>
+                </div>
 
-              
+
+
                 <button className="btn bg-blue-400 hover:bg-blue-500 w-full" onClick={calculateDosage}>Calculate</button>
                 {/* Progress Bar */}
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
