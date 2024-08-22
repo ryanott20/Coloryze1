@@ -411,26 +411,32 @@ function App() {
                 <p className="text-lg mb-2"><strong>Dispense Method:</strong> {result.dispenseMethod}</p>
                 <p className="text-lg mb-2"><strong>Strength:</strong> {result.strength}</p>
                 <p className="text-lg mb-4"><strong>Instructions:</strong> {result.instructions}</p>
-                {showCalculations && (
-                  <div className="bg-gray-200 p-4 rounded-lg mt-4">
-                    <h3 className="text-xl font-semibold mb-2">Calculations:</h3>
-                    <p><strong>Adult Dose:</strong> {formFields.adultDose} mg/day</p>
-                    <p><strong>Weight:</strong> {formFields.weight} kg</p>
-                    <p><strong>Calculated Dosage:</strong> {result.dosage} {unit} per day</p>
-                  </div>
-                )}
+              
+                
                 <button
-                  className="btn bg-green-400 hover:bg-green-500 text-white w-full py-2 rounded-lg mt-4"
-                  onClick={() => setShowCalculations(!showCalculations)}
-                >
-                  {showCalculations ? 'Hide Calculations' : 'Show Calculations'}
-                </button>
-                <button
-                  className="btn bg-blue-400 hover:bg-blue-500 text-white w-full py-2 rounded-lg mt-4"
+                  className="btn bg-blue-400 hover:bg-blue-500 text-white w-full py-2 rounded-lg mt-4 text-center text-lg"
                   onClick={handleAnotherCalculation}
                 >
                   Calculate Another
                 </button>
+
+                <div
+  className="btn text-gray-700 hover:text-gray-900 w-full py-2 rounded-lg mt-4 text-center text-lg"
+  onClick={() => setShowCalculations(!showCalculations)}
+>
+  {showCalculations ? 'Show Calculations' : 'Hide Calculations'}
+</div>
+{!showCalculations && (
+                  <div className="bg-gray-200 p-4 rounded-lg mt-4">
+                  <h3 className="text-xl font-semibold mb-2">Calculations:</h3>
+                  <p><strong>Adult Dose:</strong> {formFields.adultDose} mg/day</p>
+                  <p><strong>Weight:</strong> {formFields.weight} {weightUnit}</p>
+                  <p><strong>Calculated Dosage:</strong> {result.dosage} {unit} per day</p>
+                  <p><strong>Total Dosage:</strong> {formFields.adultDose * result.dosage} mg/day</p>
+                </div>
+                
+                )}
+
               </div>
             )}
           </div>
