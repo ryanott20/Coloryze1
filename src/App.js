@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './output.css';
 import AutocompleteInput from './AutocompleteInput';
 import { TextField } from '@mui/material';
@@ -20,9 +20,20 @@ function App() {
   const [showCalculations, setShowCalculations] = useState(false);
   const [frequency, setFrequency] = useState('q24hr (qDay)');
   const [amount, setAmount] = useState('mg'); // Unit for weight
-  const [volume, setVolume] = useState('ml'); // Unit for weight
+  const [volume, setVolume] = useState('mL'); // Unit for weight
 
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 3000); // Hide toast after 3 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [showToast]);
 
   const handleDrugNameSelect = (selectedName) => {
     setFormFields((prev) => ({ ...prev, drugName: selectedName }));
@@ -42,6 +53,8 @@ function App() {
     setShowCalculations(false);
   };
 
+
+  
   const updateProgress = () => {
     const filledFields = Object.values(formFields).filter(Boolean).length;
     setProgress((filledFields / Object.keys(formFields).length) * 100);
@@ -66,7 +79,8 @@ function App() {
     const adultDose = parseFloat(formFields.adultDose);
     const weight = parseFloat(formFields.weight);
     if (isNaN(adultDose) || isNaN(weight)) {
-      alert('Please enter valid numbers for the Inputs.');
+      setShowToast(true);
+
       return;
     }
 
@@ -106,6 +120,8 @@ function App() {
     // This part may be optional, depending on your needs
   };
 
+ 
+
   return (
     <div
       className="bg-base-200 absolute inset-0 bg-no-repeat bg-cover bg-center"
@@ -113,8 +129,20 @@ function App() {
         backgroundImage: `url('/doctor_gradient.png')`,
       }}
     >
+      
       {/* Navbar */}
       <div className="navbar bg-base-100 shadow-md py-4">
+
+      {showToast && (
+        <div className="toast toast-end">
+        <div className="alert alert-error">
+          <span> Please Enter Valid Inputs.</span>
+        </div>
+        
+      </div>
+      )}
+    
+  
         <div className="navbar-start">
           <div className="dropdown lg:hidden">
             <button className="btn btn-ghost" tabIndex={0} aria-label="Menu">
