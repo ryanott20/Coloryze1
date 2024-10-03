@@ -1,42 +1,709 @@
 [
-    { "name": "Advil", "dosages": ["200 mg", "400 mg", "600 mg"] },
-    { "name": "Tylenol", "dosages": ["325 mg", "500 mg", "650 mg"] },
-    { "name": "Aleve", "dosages": ["220 mg"] },
-    { "name": "Aspirin", "dosages": ["81 mg", "325 mg"] },
-    { "name": "Benadryl", "dosages": ["25 mg", "50 mg"] },
-    { "name": "Claritin", "dosages": ["10 mg"] },
-    { "name": "Zyrtec", "dosages": ["10 mg"] },
-    { "name": "Motrin", "dosages": ["200 mg", "400 mg", "600 mg"] },
-    { "name": "Naproxen", "dosages": ["250 mg", "500 mg"] },
-    { "name": "Prilosec", "dosages": ["20 mg", "40 mg"] },
-    { "name": "Zantac", "dosages": ["75 mg", "150 mg"] },
-    { "name": "Maalox", "dosages": ["200 mg"] },
-    { "name": "Pepto-Bismol", "dosages": ["262 mg"] },
-    { "name": "Robitussin", "dosages": ["100 mg", "200 mg"] },
-    { "name": "Sudafed", "dosages": ["30 mg", "60 mg"] },
-    { "name": "Tums", "dosages": ["500 mg"] },
-    { "name": "Imodium", "dosages": ["2 mg"] },
-    { "name": "Loratadine", "dosages": ["10 mg"] },
-    { "name": "Diphenhydramine", "dosages": ["25 mg"] },
-    { "name": "Hydrochlorothiazide", "dosages": ["12.5 mg", "25 mg"] },
-    { "name": "Lisinopril", "dosages": ["10 mg", "20 mg"] },
-    { "name": "Metformin", "dosages": ["500 mg", "1000 mg"] },
-    { "name": "Amlodipine", "dosages": ["5 mg", "10 mg"] },
-    { "name": "Simvastatin", "dosages": ["20 mg", "40 mg"] },
-    { "name": "Atorvastatin", "dosages": ["10 mg", "20 mg", "40 mg"] },
-    { "name": "Levothyroxine", "dosages": ["50 mcg", "100 mcg"] },
-    { "name": "Sertraline", "dosages": ["50 mg", "100 mg"] },
-    { "name": "Gabapentin", "dosages": ["300 mg", "600 mg"] },
-    { "name": "Amoxicillin", "dosages": ["500 mg", "875 mg"] },
-    { "name": "Azithromycin", "dosages": ["250 mg", "500 mg"] },
-    { "name": "Clindamycin", "dosages": ["150 mg", "300 mg"] },
-    { "name": "Ciprofloxacin", "dosages": ["250 mg", "500 mg"] },
-    { "name": "Doxycycline", "dosages": ["100 mg"] },
-    { "name": "Hydrocodone", "dosages": ["5 mg", "10 mg"] },
-    { "name": "Oxycodone", "dosages": ["5 mg", "10 mg"] },
-    { "name": "Tramadol", "dosages": ["50 mg", "100 mg"] },
-    { "name": "Celecoxib", "dosages": ["100 mg", "200 mg"] },
-    { "name": "Meloxicam", "dosages": ["7.5 mg", "15 mg"] },
-    { "name": "Ketorolac", "dosages": ["10 mg"] }
-  ]
-  
+  {
+    "name": "Tylenol",
+    "generic_name": "Acetaminophen",
+    "dosage": {
+      "weight_based": "10-15 mg/kg per dose",
+      "max_dose_per_day": "75 mg/kg",
+      "age_based": {
+        "age_range_2_3_years": "160 mg every 4-6 hours",
+        "age_range_4_5_years": "240 mg every 4-6 hours"
+      }
+    }
+  },
+  {
+    "name": "Motrin",
+    "generic_name": "Ibuprofen",
+    "dosage": {
+      "weight_based": "5-10 mg/kg per dose",
+      "max_dose_per_day": "40 mg/kg",
+      "age_based": {
+        "age_range_6_12_months": "50 mg every 6-8 hours",
+        "age_range_1_3_years": "100 mg every 6-8 hours"
+      }
+    }
+  },
+  {
+    "name": "Amoxil",
+    "generic_name": "Amoxicillin",
+    "dosage": {
+      "weight_based": "20-40 mg/kg/day divided into 2-3 doses",
+      "max_dose_per_day": "80 mg/kg",
+      "age_based": {
+        "age_range_1_2_years": "125 mg every 8 hours",
+        "age_range_3_5_years": "250 mg every 8 hours"
+      }
+    }
+  },
+  {
+    "name": "Zithromax",
+    "generic_name": "Azithromycin",
+    "dosage": {
+      "weight_based": "10 mg/kg on day 1, 5 mg/kg on days 2-5",
+      "max_dose_per_day": "500 mg",
+      "age_based": {
+        "age_range_2_3_years": "100 mg once daily for 3 days",
+        "age_range_4_5_years": "200 mg once daily for 3 days"
+      }
+    }
+  },
+  {
+    "name": "Augmentin",
+    "generic_name": "Amoxicillin/Clavulanate",
+    "dosage": {
+      "weight_based": "20-40 mg/kg/day divided into 2 doses",
+      "max_dose_per_day": "90 mg/kg",
+      "age_based": {
+        "age_range_1_2_years": "200 mg every 12 hours",
+        "age_range_3_5_years": "400 mg every 12 hours"
+      }
+    }
+  },
+  {
+    "name": "Benadryl",
+    "generic_name": "Diphenhydramine",
+    "dosage": {
+      "weight_based": "1 mg/kg per dose",
+      "max_dose_per_day": "50 mg",
+      "age_based": {
+        "age_range_2_3_years": "6.25 mg every 4-6 hours",
+        "age_range_4-5 years": "12.5 mg every 4-6 hours"
+      }
+    }
+  },
+  {
+    "name": "Albuterol",
+    "generic_name": "Albuterol Sulfate",
+    "dosage": {
+      "weight_based": "0.15 mg/kg per dose",
+      "max_dose_per_day": "2.5 mg/dose",
+      "age_based": {
+        "age_range_1_2_years": "0.63 mg via nebulizer every 6-8 hours",
+        "age_range_3_5 years": "1.25 mg via nebulizer every 6-8 hours"
+      }
+    }
+  },
+  {
+    "name": "Prednisolone",
+    "generic_name": "Prednisolone Sodium Phosphate",
+    "dosage": {
+      "weight_based": "1-2 mg/kg/day",
+      "max_dose_per_day": "60 mg",
+      "age_based": {
+        "age_range_1_2 years": "5 mg once daily",
+        "age_range_3_5 years": "10 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Risperdal",
+    "generic_name": "Risperidone",
+    "dosage": {
+      "weight_based": "0.01-0.02 mg/kg/day",
+      "max_dose_per_day": "6 mg",
+      "age_based": {
+        "age_range_6_12 years": "0.25 mg once daily",
+        "age_range_13_17 years": "0.5 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Keflex",
+    "generic_name": "Cephalexin",
+    "dosage": {
+      "weight_based": "25-50 mg/kg/day divided into 2-4 doses",
+      "max_dose_per_day": "4000 mg",
+      "age_based": {
+        "age_range_1_3 years": "125 mg every 6 hours",
+        "age_range_4_5 years": "250 mg every 6 hours"
+      }
+    }
+  },
+  {
+    "name": "Cefzil",
+    "generic_name": "Cefprozil",
+    "dosage": {
+      "weight_based": "15-30 mg/kg/day in divided doses",
+      "max_dose_per_day": "1000 mg",
+      "age_based": {
+        "age_range_1_2 years": "125 mg twice daily",
+        "age_range_3_5 years": "250 mg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Bactrim",
+    "generic_name": "Sulfamethoxazole/Trimethoprim",
+    "dosage": {
+      "weight_based": "8-12 mg/kg/day divided into 2 doses",
+      "max_dose_per_day": "960 mg",
+      "age_based": {
+        "age_range_2_5 years": "240 mg every 12 hours",
+        "age_range_6_12 years": "480 mg every 12 hours"
+      }
+    }
+  },
+  {
+    "name": "Diflucan",
+    "generic_name": "Fluconazole",
+    "dosage": {
+      "weight_based": "3-12 mg/kg/day",
+      "max_dose_per_day": "400 mg",
+      "age_based": {
+        "age_range_1_2 years": "50 mg daily",
+        "age_range_3_5 years": "100 mg daily"
+      }
+    }
+  },
+  {
+    "name": "Singulair",
+    "generic_name": "Montelukast",
+    "dosage": {
+      "age_based": {
+        "age_range_2_5 years": "4 mg once daily",
+        "age_range_6_14 years": "5 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Claritin",
+    "generic_name": "Loratadine",
+    "dosage": {
+      "age_based": {
+        "age_range_2_5 years": "5 mg once daily",
+        "age_range_6_12 years": "10 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Xyzal",
+    "generic_name": "Levocetirizine",
+    "dosage": {
+      "age_based": {
+        "age_range_2_5 years": "1.25 mg once daily",
+        "age_range_6_11 years": "2.5 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Zyrtec",
+    "generic_name": "Cetirizine",
+    "dosage": {
+      "age_based": {
+        "age_range_2_5 years": "2.5-5 mg once daily",
+        "age_range_6_11 years": "5-10 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Mucinex",
+    "generic_name": "Guaifenesin",
+    "dosage": {
+      "weight_based": "12 mg/kg every 4 hours",
+      "max_dose_per_day": "2400 mg",
+      "age_based": {
+        "age_range_2_3 years": "50-100 mg every 4 hours",
+        "age_range_4_5 years": "100-200 mg every 4 hours"
+      }
+    }
+  },
+  {
+    "name": "Robitussin",
+    "generic_name": "Dextromethorphan",
+    "dosage": {
+      "age_based": {
+        "age_range_2_3 years": "2.5 mg every 6-8 hours",
+        "age_range_4_5 years": "5 mg every 6-8 hours"
+      }
+    }
+  },
+  {
+    "name": "Tamiflu",
+    "generic_name": "Oseltamivir",
+    "dosage": {
+      "weight_based": "3 mg/kg/dose twice daily",
+      "max_dose_per_day": "150 mg/day",
+      "age_based": {
+        "age_range_1-12 years": "30-60 mg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Flonase",
+    "generic_name": "Fluticasone",
+    "dosage": {
+      "age_based": {
+        "age_range_2-11 years": "1 spray per nostril once daily",
+        "age_range_12+ years": "2 sprays per nostril once daily"
+      }
+    }
+  },
+  {
+    "name": "Pulmicort",
+    "generic_name": "Budesonide",
+    "dosage": {
+      "age_based": {
+        "age_range_1-8 years": "0.25-0.5 mg via nebulizer once daily",
+        "age_range_9+ years": "0.5-1 mg via nebulizer once daily"
+      }
+    }
+  },
+  {
+    "name": "Nasonex",
+    "generic_name": "Mometasone",
+    "dosage": {
+      "age_based": {
+        "age_range_2-11 years": "1 spray per nostril once daily",
+        "age_range_12+ years": "2 sprays per nostril once daily"
+      }
+    }
+  },
+  {
+    "name": "Ventolin",
+    "generic_name": "Albuterol",
+    "dosage": {
+      "age_based": {
+        "age_range_2-12 years": "1-2 inhalations every 4-6 hours",
+        "age_range_13+ years": "2 inhalations every 4-6 hours"
+      }
+    }
+  },
+  {
+    "name": "Symbicort",
+    "generic_name": "Budesonide/Formoterol",
+    "dosage": {
+      "age_based": {
+        "age_range_6-11 years": "2 inhalations twice daily",
+        "age_range_12+ years": "2 inhalations twice daily"
+      }
+    }
+  },
+  {
+    "name": "Advair",
+    "generic_name": "Fluticasone/Salmeterol",
+    "dosage": {
+      "age_based": {
+        "age_range_4-11 years": "1 inhalation twice daily",
+        "age_range_12+ years": "1 inhalation twice daily"
+      }
+    }
+  },
+  {
+    "name": "Lantus",
+    "generic_name": "Insulin Glargine",
+    "dosage": {
+      "weight_based": "0.2-0.4 units/kg once daily",
+      "age_based": {
+        "age_range_6+ years": "10-20 units once daily"
+      }
+    }
+  },
+  {
+    "name": "Humalog",
+    "generic_name": "Insulin Lispro",
+    "dosage": {
+      "weight_based": "0.1-0.2 units/kg before meals",
+      "age_based": {
+        "age_range_6+ years": "4-6 units before meals"
+      }
+    }
+  },
+  {
+    "name": "EpiPen",
+    "generic_name": "Epinephrine",
+    "dosage": {
+      "age_based": {
+        "age_range_0-4 years": "0.15 mg intramuscularly",
+        "age_range_5+ years": "0.3 mg intramuscularly"
+      }
+    }
+  },
+  {
+    "name": "Ritalin",
+    "generic_name": "Methylphenidate",
+    "dosage": {
+      "weight_based": "0.3-0.6 mg/kg/day",
+      "age_based": {
+        "age_range_6-12 years": "5-10 mg twice daily",
+        "age_range_13+ years": "10-20 mg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Adderall",
+    "generic_name": "Amphetamine/Dextroamphetamine",
+    "dosage": {
+      "weight_based": "0.1-0.3 mg/kg/day",
+      "age_based": {
+        "age_range_6-12 years": "5-10 mg once daily",
+        "age_range_13+ years": "10-20 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Vyvanse",
+    "generic_name": "Lisdexamfetamine",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "20-30 mg once daily",
+        "age_range_13+ years": "30-70 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Concerta",
+    "generic_name": "Methylphenidate ER",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "18-54 mg once daily",
+        "age_range_13+ years": "18-72 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Focalin",
+    "generic_name": "Dexmethylphenidate",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "5-10 mg twice daily",
+        "age_range_13+ years": "10-20 mg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Tenex",
+    "generic_name": "Guanfacine",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "0.5-1 mg daily",
+        "age_range_13+ years": "1-2 mg daily"
+      }
+    }
+  },
+  {
+    "name": "Strattera",
+    "generic_name": "Atomoxetine",
+    "dosage": {
+      "weight_based": "0.5-1.4 mg/kg/day",
+      "age_based": {
+        "age_range_6+ years": "10-40 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Prozac",
+    "generic_name": "Fluoxetine",
+    "dosage": {
+      "age_based": {
+        "age_range_8-12 years": "10 mg once daily",
+        "age_range_13+ years": "20-40 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Zoloft",
+    "generic_name": "Sertraline",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "25 mg once daily",
+        "age_range_13+ years": "50-100 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Lexapro",
+    "generic_name": "Escitalopram",
+    "dosage": {
+      "age_based": {
+        "age_range_12+ years": "10 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Celexa",
+    "generic_name": "Citalopram",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "10-20 mg once daily",
+        "age_range_13+ years": "20-40 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Ativan",
+    "generic_name": "Lorazepam",
+    "dosage": {
+      "weight_based": "0.05-0.1 mg/kg per dose",
+      "max_dose_per_day": "4 mg",
+      "age_based": {
+        "age_range_2-5 years": "0.5-1 mg per dose",
+        "age_range_6+ years": "1-2 mg per dose"
+      }
+    }
+  },
+  {
+    "name": "Valium",
+    "generic_name": "Diazepam",
+    "dosage": {
+      "weight_based": "0.2-0.5 mg/kg every 4-6 hours",
+      "max_dose_per_day": "40 mg",
+      "age_based": {
+        "age_range_2-5 years": "1-2 mg per dose",
+        "age_range_6+ years": "5-10 mg per dose"
+      }
+    }
+  },
+  {
+    "name": "Xanax",
+    "generic_name": "Alprazolam",
+    "dosage": {
+      "age_based": {
+        "age_range_6+ years": "0.25-0.5 mg every 6-8 hours"
+      }
+    }
+  },
+  {
+    "name": "Ritalin LA",
+    "generic_name": "Methylphenidate ER",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "20-60 mg once daily",
+        "age_range_13+ years": "40-80 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Clonidine",
+    "generic_name": "Clonidine",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "0.05 mg twice daily",
+        "age_range_13+ years": "0.1-0.2 mg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Bactroban",
+    "generic_name": "Mupirocin",
+    "dosage": {
+      "age_based": {
+        "age_range_1+ years": "Apply 2-3 times daily to affected area"
+      }
+    }
+  },
+  {
+    "name": "Protopic",
+    "generic_name": "Tacrolimus",
+    "dosage": {
+      "age_based": {
+        "age_range_2+ years": "Apply a thin layer to affected area twice daily"
+      }
+    }
+  },
+  {
+    "name": "Elidel",
+    "generic_name": "Pimecrolimus",
+    "dosage": {
+      "age_based": {
+        "age_range_2+ years": "Apply to affected area twice daily"
+      }
+    }
+  },
+  {
+    "name": "Clobex",
+    "generic_name": "Clobetasol",
+    "dosage": {
+      "age_based": {
+        "age_range_12+ years": "Apply to affected area twice daily"
+      }
+    }
+  },
+  {
+    "name": "Lidex",
+    "generic_name": "Fluocinonide",
+    "dosage": {
+      "age_based": {
+        "age_range_12+ years": "Apply to affected area twice daily"
+      }
+    }
+  },
+  {
+    "name": "Desonate",
+    "generic_name": "Desonide",
+    "dosage": {
+      "age_based": {
+        "age_range_2+ years": "Apply to affected area 2-4 times daily"
+      }
+    }
+  },
+  {
+    "name": "Hydrocortisone Cream",
+    "generic_name": "Hydrocortisone",
+    "dosage": {
+      "age_based": {
+        "age_range_2+ years": "Apply 2-4 times daily to affected area"
+      }
+    }
+  },
+  {
+    "name": "Nystatin",
+    "generic_name": "Nystatin",
+    "dosage": {
+      "age_based": {
+        "age_range_infants": "2 mL four times daily",
+        "age_range_2+ years": "5 mL four times daily"
+      }
+    }
+  },
+  {
+    "name": "Lotrimin",
+    "generic_name": "Clotrimazole",
+    "dosage": {
+      "age_based": {
+        "age_range_2+ years": "Apply 2-3 times daily to affected area"
+      }
+    }
+  },
+  {
+    "name": "Monistat",
+    "generic_name": "Miconazole",
+    "dosage": {
+      "age_based": {
+        "age_range_2+ years": "Apply twice daily to affected area"
+      }
+    }
+  },
+  {
+    "name": "Aldara",
+    "generic_name": "Imiquimod",
+    "dosage": {
+      "age_based": {
+        "age_range_12+ years": "Apply 2-3 times per week"
+      }
+    }
+  },
+  {
+    "name": "Zovirax",
+    "generic_name": "Acyclovir",
+    "dosage": {
+      "weight_based": "20 mg/kg per dose every 8 hours",
+      "max_dose_per_day": "800 mg",
+      "age_based": {
+        "age_range_2-12 years": "400 mg every 8 hours"
+      }
+    }
+  },
+  {
+    "name": "Valtrex",
+    "generic_name": "Valacyclovir",
+    "dosage": {
+      "weight_based": "10-20 mg/kg twice daily",
+      "age_based": {
+        "age_range_6-12 years": "500 mg twice daily",
+        "age_range_13+ years": "1 g twice daily"
+      }
+    }
+  },
+  {
+    "name": "Singulair",
+    "generic_name": "Montelukast",
+    "dosage": {
+      "age_based": {
+        "age_range_2-5 years": "4 mg once daily",
+        "age_range_6-14 years": "5 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Advair Diskus",
+    "generic_name": "Fluticasone/Salmeterol",
+    "dosage": {
+      "age_based": {
+        "age_range_4-11 years": "1 inhalation twice daily",
+        "age_range_12+ years": "2 inhalations twice daily"
+      }
+    }
+  },
+  {
+    "name": "Xopenex",
+    "generic_name": "Levalbuterol",
+    "dosage": {
+      "age_based": {
+        "age_range_6-12 years": "0.31-0.63 mg via nebulizer every 6-8 hours",
+        "age_range_13+ years": "0.63-1.25 mg via nebulizer every 6-8 hours"
+      }
+    }
+  },
+  {
+    "name": "Qvar",
+    "generic_name": "Beclomethasone",
+    "dosage": {
+      "age_based": {
+        "age_range_5-11 years": "40-80 mcg twice daily",
+        "age_range_12+ years": "80-160 mcg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Asmanex",
+    "generic_name": "Mometasone",
+    "dosage": {
+      "age_based": {
+        "age_range_4-11 years": "110 mcg once daily",
+        "age_range_12+ years": "220 mcg once daily"
+      }
+    }
+  },
+  {
+    "name": "Zyrtec",
+    "generic_name": "Cetirizine",
+    "dosage": {
+      "age_based": {
+        "age_range_2-5 years": "2.5-5 mg once daily",
+        "age_range_6-12 years": "5-10 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Claritin",
+    "generic_name": "Loratadine",
+    "dosage": {
+      "age_based": {
+        "age_range_2-5 years": "2.5 mg once daily",
+        "age_range_6-12 years": "5 mg once daily"
+      }
+    }
+  },
+  {
+    "name": "Benadryl",
+    "generic_name": "Diphenhydramine",
+    "dosage": {
+      "weight_based": "1-1.5 mg/kg every 6-8 hours",
+      "max_dose_per_day": "150 mg",
+      "age_based": {
+        "age_range_2-5 years": "6.25 mg every 6 hours",
+        "age_range_6-12 years": "12.5-25 mg every 6 hours"
+      }
+    }
+  },
+  {
+    "name": "Zantac",
+    "generic_name": "Ranitidine",
+    "dosage": {
+      "age_based": {
+        "age_range_2-12 years": "2-4 mg/kg twice daily",
+        "age_range_13+ years": "150 mg twice daily"
+      }
+    }
+  },
+  {
+    "name": "Prilosec",
+    "generic_name": "Omeprazole",
+    "dosage": {
+      "age_based": {
+        "age_range_2-5 years": "10 mg once daily",
+        "age_range_6-12 years": "20 mg once daily"
+      }
+    }
+  }
+]
