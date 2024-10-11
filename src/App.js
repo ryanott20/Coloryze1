@@ -1286,7 +1286,7 @@ function App() {
                   <p><strong>Adult Dose:</strong> {formFields.adultDose} mg/day</p>
                   <p><strong>Weight:</strong> {formFields.weight} {weightUnit}</p>
                   <p><strong>Calculated Dosage:</strong> {result.dosage} {unit} per day</p>
-                  <p><strong>Total Dosage:</strong> {formFields.adultDose * result.dosage} mg/day</p>
+                  <p><strong>Total Dosage: </strong> {formFields.adultDose * result.dosage} mg/day</p>
                 </div>
               )}
             </div>
