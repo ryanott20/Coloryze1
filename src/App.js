@@ -713,6 +713,7 @@ const drugData = [
 ];
 
 function App() {
+  
   const [formFields, setFormFields] = useState({
     drugName: '',
     adultDose: '',
@@ -870,11 +871,12 @@ function App() {
 
   return (
     <div
-      className="bg-base-100 absolute inset-0 bg-no-repeat bg-cover bg-center"
+      className="bg-base-100 absolute inset-0 bg-no-repeat bg-cover bg-center "
       style={{
         //backgroundImage: `url('/doctor_gradient.png')`,
       }}
     >
+
       {/* Navbar */}
       <div className="navbar bg-neutral shadow-md py-4">
   
@@ -932,19 +934,19 @@ function App() {
         <div className="navbar bg-white  py-4 px-8">
           <div className="navbar-start"></div>
           <div className="navbar-end space-x-8 text-lg font-medium">
-            <a href="/about" className="text-black hover:text-gray-600">About</a>
-            <a href="/database" className="text-black hover:text-gray-600">Database</a>
-            <a href="/calculator" className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700">
-              Calculator
+            {/* <a href="/about" className="text-black hover:text-gray-600">About</a> */}
+            {/* <a href="/database" className="text-black hover:text-gray-600">Database</a> */}
+            <a href="/calculator" className="bg-blue-600 font-serif text-white py-2 px-4 rounded-full hover:bg-blue-700">
+              Reset Calculator
             </a>
           </div>
         </div>
       </div>
   
-      <section className="flex flex-row items-start justify-center gap-8 p-8 mt-8">
+      <section className="flex flex-row items-start justify-center gap-8 p-8 mt-8 font-serif">
         {/* Left box: Form Section */}
         <div className="w-3/4 bg-neutral shadow-xl rounded-xl p-8 space-y-8">
-          <h2 className="text-3xl font-bold text-blue-600 mb-4 w-full">Pediatric Dosage Calculator</h2>
+          <h2 className="text-3xl font-bold text-blue-500 mb-4 w-full">Pediatric Dosage Calculator</h2>
           {!result ? (
             <>
               <div className="input-group flex flex-col gap-2 w-full">
@@ -1026,7 +1028,7 @@ function App() {
                   <input
                     type="text"
                     name="adultDose"
-                    placeholder="Dosage"
+                    placeholder="Max Dosage per Day"
                     value={formFields.adultDose}
                     onChange={handleInputChange}
                     onBlur={handleInputBlur}
@@ -1250,6 +1252,10 @@ function App() {
                   className="bg-primary h-2.5 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${progress}%` }}
                 ></div>
+              </div>
+
+              <div className="w-full text-red-600">
+                  <p> PediatRx is still in Early Beta Testing. Double check calulations before using for patients.</p>
               </div>
             </>
           ) : (
